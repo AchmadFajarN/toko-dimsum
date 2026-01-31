@@ -1,0 +1,124 @@
+.product-detail {
+    width: 100%;
+    min-height: 100vh;
+    padding: 4rem;
+}
+
+.product-detail a {
+    text-decoration: none;
+    color: rgb(237, 0, 103);
+    display: inline-block;
+    margin-block: 1rem;
+}
+
+.product-detail-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.product-detail-content {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.button-qnty {
+    display: flex;
+    align-items: center;
+}
+
+.button-qnty button {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    border: none;
+    background-color: rgb(237, 0, 103);
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: color 0.4s ease-in-out;
+}
+.button-qnty button:hover {
+    border: 1px solid rgb(237, 0, 103);
+    background-color: transparent;
+    color: rgb(237, 0, 103);
+}
+.button-qnty p {
+    padding-inline: 1rem;
+    font-size: 2rem;
+    color: rgb(237, 0, 103);
+}
+.button-first {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.button-second {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.price-text {
+    margin-top: 1rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgb(214, 111, 156);
+
+}
+.total-price {
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    color: rgb(237, 0, 103);
+}
+.product-detail-checkout button.button-checkout {
+    display: block;
+    border: none;
+    background-color: rgb(237, 0, 103);
+    color: white;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: color 0.4s ease-in-out;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.product-detail-checkout button.button-checkout:hover {
+    border: 1px solid rgb(237, 0, 103);
+    background-color: transparent;
+    color: rgb(237, 0, 103);   
+}
+.product-detail-name {
+    font-size: 4rem;
+    color: rgb(237, 0, 103);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.product-detail-description {
+    margin-bottom: 1rem;
+    color: rgb(214, 111, 156);
+}
+
+@media screen and (max-width: 1280px) {
+    .product-detail {
+        padding-inline: 1rem;
+        padding-top: 4rem;
+    }
+    .product-detail-name {
+        font-size: 2rem;
+    }
+    .product-detail-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .total-price {
+        font-size: 2rem;
+    }
+    .product-detail-checkout button.button-checkout {
+        width: 100%;
+    }
+}

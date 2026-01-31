@@ -1,9 +1,8 @@
-import MainProduct from "../components/products/MainProduct"
-
+import { Outlet } from "react-router"
 const Product = () => {
   return (
     <>
-      <MainProduct />
+     <Outlet />
     </>
   )
 }

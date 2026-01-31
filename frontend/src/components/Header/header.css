@@ -28,10 +28,10 @@
     position: fixed;
     top: 0;
     z-index: 99;
-    color: black;
+    color: rgb(237, 0, 103);
     background-color: white;
     width: 100%;
-
+    
     transition: all 0.25s ease-in-out;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .header-nav-ul-li-a-scroll {
-    color: black;
+    color: rgb(237, 0, 103);
     text-decoration: none;
 }
 @media screen and (max-width: 1280px) {

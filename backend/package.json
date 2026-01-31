@@ -1,5 +1,20 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
   "dependencies": {
-    "express": "^5.2.1"
-  }
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "knex": "^3.1.0",
+    "mysql2": "^3.16.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:up": "npx knex migrate:up",
+    "migrate:create": "npx knex migrate:make"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

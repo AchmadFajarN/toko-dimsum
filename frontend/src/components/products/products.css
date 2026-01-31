@@ -1,3 +1,98 @@
 .main-product {
     min-height: 100vh;
+    padding: 4rem;
+}
+.list-category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+}
+.main-product-header-categories {
+    margin-top: 1rem;
+    color: rgb(178, 0, 77);
+}
+.main-product-header-categories::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    margin-top: 8px;
+    height: 2px;
+    background-color: rgb(178, 0, 77);
+}
+.product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+.card-product {
+    color: rgb(178, 0, 77);
+
+    /* height: 16rem; */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.card-product-img-container {
+    overflow: hidden;
+}
+.card-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.2s ease-in-out;
+}
+.card-product:hover .card-product-img {
+    transform: scale(1.1);
+}
+.card-product-content {
+    padding: 8px;
+}
+.card-product-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.card-product-price {
+    color: rgb(222, 132, 171);
+    margin-block: 4px;
+    font-weight: bold;
+}
+.card-product-button {
+    margin-top: 1rem;
+    width: 100%;
+    padding-block: 8px;
+    background-color: rgb(237, 0, 103);
+    border-radius: 20px;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+.card-product-button:hover {
+    border: 1px solid rgb(237, 0, 103);
+    color: rgb(237, 0, 103);
+    background-color: transparent;
+}
+
+@media screen and (max-width: 1280px) {
+    .main-product {
+        padding: 4rem 1rem;
+    }
+    .product-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
 }

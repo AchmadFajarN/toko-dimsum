@@ -22,6 +22,10 @@ const Header = () => {
     {
       name: "product",
       path: '/products'
+    },
+    {
+      name: 'login',
+      path: '/login'
     }
   ]
   return (
