@@ -9,6 +9,12 @@ import MainProduct from '../components/products/MainProduct';
 import ProductDetailMain from '../components/ProductDetails/ProductDetailMain';
 import Login from '../pages/Login';;
 import Register from '../pages/Register';
+import DashboardUser from '../pages/DashboardUser';
+import DashboardProduct from '../pages/DashboardProduct';
+
+import DashboardLayout from '../layout/dashboard/DashboardLayout';
+
+import Dashboard from '../pages/Dashboard';
 
 const router = createBrowserRouter([
     {
@@ -40,8 +46,26 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 Component: Register
+            },
+            {
+                path: 'dashboard-user',
+                Component: DashboardUser
             }
         ],
+    }, 
+    {
+        path: 'dashboard',
+        Component: DashboardLayout,
+        children: [
+            {
+                index: true,
+                Component: Dashboard
+            },
+            {
+                path: 'product',
+                Component: DashboardProduct
+            }
+        ]
     }
 ]);
 

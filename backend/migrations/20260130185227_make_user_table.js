@@ -7,8 +7,8 @@ export function up (knex) {
     table.string('id', 36).primary();
     table.string('username', 100).notNullable().unique();
     table.string('email', 100).notNullable().unique();
-    table.enu('role', ['user', 'role']).defaultTo('user').notNullable();
-    table.string('password', 50).notNullable().unique();
+    table.enu('role', ['user', 'admin']).defaultTo('user').notNullable();
+    table.string('password', 100).notNullable().unique();
     table.timestamp(true, true);
   })
 };

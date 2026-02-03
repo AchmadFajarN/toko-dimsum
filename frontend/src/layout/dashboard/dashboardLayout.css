@@ -1,0 +1,16 @@
+.wrapper-sidebar {
+    background-color: rgb(241, 241, 241);
+    min-height: 100vh;   
+}
+
+.sidebar-main {
+    padding-left: 14rem;
+    padding-top: 2rem;
+}
+
+@media screen and (max-width: 560px) {
+    .sidebar-main {
+        overflow-x: scroll;
+        padding-left: 6rem;
+    }
+}

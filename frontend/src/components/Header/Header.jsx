@@ -1,8 +1,10 @@
 import './header.css';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
+import { useAuth } from '../../hooks/useAuth'; 
 
 const Header = () => {
+  const { user, logout, isAuthenticated } = useAuth();
   const [scroll, setScroll] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
@@ -23,10 +25,6 @@ const Header = () => {
       name: "product",
       path: '/products'
     },
-    {
-      name: 'login',
-      path: '/login'
-    }
   ]
   return (
       <header className={`${ !scroll && pathname === '/' ? 'header' : 'header-scroll' }`}>
@@ -41,6 +39,18 @@ const Header = () => {
                   </li>
                 )
               })
+            }
+            { 
+              isAuthenticated ? 
+              <>
+                <li className='header-nav-ul-li'>
+                  <Link className={ `${ !scroll && pathname === '/' ? 'header-nav-ul-li-a' : 'header-nav-ul-li-a-scroll' }` }  to={'/dashboard-user'}>{ user.username } </Link> 
+                </li>
+                <li onClick={logout} className='header-nav-ul-li'><button className='btn btn-logout'>Logout</button></li> 
+              </>
+              : <li className='header-nav-ul-li'>
+                <Link className={ `${ !scroll && pathname === '/' ? 'header-nav-ul-li-a' : 'header-nav-ul-li-a-scroll' }` } to={'/login'} >Login</Link>
+              </li>
             }
           </ul>
         </nav>

@@ -49,3 +49,8 @@
 .btn-auth {
     padding: 12px;
 }
+.form-error-message {
+    background-color: rgba(242, 129, 178, 0.434);
+    padding: 8px 16px;
+    border-radius: 5px;
+}

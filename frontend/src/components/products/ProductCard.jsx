@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
+import { convertToRupiah } from '../../lib/formatToRupiah'
 import { Link } from 'react-router'
-const ProductCard = ({ name, rating, img_url, id }) => {
+const ProductCard = ({ name, rating, img_url, id, price }) => {
   return (
     <div className="card-product">
         <div className="card-product-img-container">
@@ -8,7 +9,7 @@ const ProductCard = ({ name, rating, img_url, id }) => {
         </div>
         <div className="card-product-content">
             <p className="card-product-name">{ name }</p>
-            <p className="card-product-price">Rp.12000</p>
+            <p className="card-product-price">{ convertToRupiah(price) }</p>
             <p className="card-product-rating">{ rating }</p>
             <Link to={`/products/${id}`} className="card-product-button">Check out</Link>
         </div>

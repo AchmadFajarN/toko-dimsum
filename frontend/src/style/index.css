@@ -1,3 +1,8 @@
+:root {
+    --main-color: rgb(237, 0, 103);
+    --main-color-light: rgb(214, 111, 156);
+    --main-color-dark: rgb(178, 0, 77);
+}
 *{
     padding: 0;
     margin: 0;
@@ -21,4 +26,15 @@ body {
     border: 1px solid rgb(237, 0, 103);
     background-color: transparent;
     color: rgb(237, 0, 103);
+}
+
+.btn-loading {
+    border: 1px solid transparent;
+    width: 100%;
+    padding-block: 8px;
+    background-color: rgba(245, 175, 205, 0.8);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
