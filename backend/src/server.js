@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 
 import authRouter from './routes/authRouter.js';
 import productRouter from './routes/productRouter.js';
@@ -13,6 +14,8 @@ app.use(cors({
 const port = process.env.PORT || 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 app.use('/auth', authRouter);
 app.use('/products', productRouter);

@@ -2,10 +2,14 @@ import { Link } from "react-router";
 import { useAuth } from "../../hooks/useAuth";
 import { useProduct } from "../../hooks/useProduct";
 import TableProduct from "./TableProducr";
+import "./dashboardProduct.css"
+import { useAddProduct } from "../../hooks/useAddProduct";
 
 const DashboardProductMain = () => {
-  const { products } = useProduct();
+  const { products, refetch } = useProduct();
   const { logout } = useAuth();
+  const { handleSubmit, form, handleChange } = useAddProduct(refetch);
+
   const data = [
     {
       name: "order",
@@ -39,7 +43,7 @@ const DashboardProductMain = () => {
         </nav>
       </header>
       <main className="main-dashboard">
-            <TableProduct data={products} />
+            <TableProduct data={products} form={form} handleChange={handleChange} handleSubmit={handleSubmit} />
       </main>
     </>
   );

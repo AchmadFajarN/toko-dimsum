@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 export const useCheckout = () => {
   const navigate = useNavigate();  
   const [qnty, setQnty] = useState(1);
+  const [errMessage, setErrMessage] = useState("");
 
   const increaseQnty = () => {
     setQnty((prev) => prev + 1);
@@ -30,10 +31,12 @@ export const useCheckout = () => {
     console.log(result);
     if (result.success) {
         navigate('/')
+    } else {
+      setErrMessage(result.message);
     }
   };
 
   return {
-    qnty, increaseQnty, decreaseQnty, handleCheckout
+    qnty, increaseQnty, decreaseQnty, handleCheckout, errMessage
   }
 };

@@ -9,6 +9,8 @@ import { createProductSchema } from "../validation/productValidation.js";
 import { AuthorizationError } from "../error/authorizationError.js";
 import { BadRequestError } from "../error/badRequestError.js";
 import { NotFoundError } from "../error/notFoundError.js";
+import fs from "fs";
+import path from "path";
 
 export const createProductController = async (req, res) => {
   try {
@@ -17,34 +19,68 @@ export const createProductController = async (req, res) => {
       throw new AuthorizationError();
     }
 
-    const parsed = createProductSchema.safeParse(req.body);
+    /**
+     * Bangun payload dari multipart/form-data
+     * Semua text field dari multer = STRING
+     */
+    const body = {
+      ...req.body,
+      price: Number(req.body.price),
+      stock:
+        req.body.stock !== undefined && req.body.stock !== ""
+          ? Number(req.body.stock)
+          : undefined,
+      is_active: req.body.is_active === "true",
+      img_url: req.file ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`  : null,
+    };
+
+    /**
+     * Validasi schema
+     */
+    const parsed = createProductSchema.safeParse(body);
     if (!parsed.success) {
+      if (req.file) {
+        fs.unlink(
+          path.join("uploads", req.file.filename),
+          () => {}
+        );
+      }
+
       return res.status(400).json({
         success: false,
-        message: parsed.error.flatten().fieldErrors
-      })
+        message: parsed.error.flatten().fieldErrors,
+      });
     }
 
     const result = await createProduct(parsed.data);
+
     return res.status(201).json({
       success: true,
       message: "produk baru telah dibuat",
       data: result,
     });
   } catch (err) {
+  
+    if (req.file) {
+      fs.unlink(
+        path.join("uploads", req.file.filename),
+        () => {}
+      );
+    }
+
     if (err.statusCode) {
       return res.status(err.statusCode).json({
         success: false,
         message: err.message,
       });
     }
+
     return res.status(500).json({
       success: false,
       message: "Internal server error",
     });
   }
 };
-
 /**
  * GET /products
  * Public (non-admin allowed)

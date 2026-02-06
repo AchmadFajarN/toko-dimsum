@@ -27,3 +27,22 @@ export const getProductById = async(id) => {
     const result = await response.json();
     return result;
 }
+
+export const createProduct = async (formData) => {
+    const token = localStorage.getItem('accessToken');
+    const response = await fetch(productUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw result;
+    }
+
+    return result;
+};

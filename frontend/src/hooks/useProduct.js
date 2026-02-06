@@ -24,6 +24,6 @@ export const useProduct = () => {
     }, []);
 
     return {
-        products, loading, error
+        products, loading, error, refetch: getProductsHandler
     }
 }

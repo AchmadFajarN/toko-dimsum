@@ -29,7 +29,7 @@
 .card-product {
     color: rgb(178, 0, 77);
 
-    /* height: 16rem; */
+    height: 24rem;
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -39,6 +39,7 @@
 }
 .card-product-img-container {
     overflow: hidden;
+    height: 50%;
 }
 .card-product-img {
     width: 100%;
@@ -52,6 +53,10 @@
 }
 .card-product-content {
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 8;
 }
 .card-product-name {
     font-size: 1.5rem;

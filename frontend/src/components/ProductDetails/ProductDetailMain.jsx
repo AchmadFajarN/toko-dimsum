@@ -6,7 +6,7 @@ import { convertToRupiah } from '../../lib/formatToRupiah'
 
 const ProductDetailMain = () => {
   const { product: dimsum } = useProductDetail();
-  const { qnty, decreaseQnty, increaseQnty, handleCheckout } = useCheckout();
+  const { qnty, decreaseQnty, increaseQnty, handleCheckout, errMessage } = useCheckout();
 
   return (
     <div className='product-detail'>
@@ -29,6 +29,10 @@ const ProductDetailMain = () => {
                 <p className='price-text'>total price</p>
                 <p className='total-price'>{ convertToRupiah(dimsum?.price * qnty) }</p>
                 <button onClick={() => handleCheckout(dimsum?.id)} className='button-checkout'>Checkout</button>
+                {
+                    errMessage && <p className='text-err'>{ errMessage }</p>
+                }
+                
             </div>
         </div>
     </div>
